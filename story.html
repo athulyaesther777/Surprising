@@ -54,7 +54,7 @@
       <h1>Hi Mochu! I'm MILK ❤️</h1>
       <p class="lead">Here's a little surprise for you — our story, our favorite places, and reasons why I love you.</p>
     </div>
-    <img src="images/milk_travel.jpeg" alt="MILK travel">
+    <img src="milk_travel.jpeg" alt="MILK travel">
   </section>
 
   <section id="timeline">
@@ -72,16 +72,16 @@
   <section id="place">
     <h2>Dream Destinations</h2>
     <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
-      <div style="text-align:center"><img src="images/finland.jpeg" style="width:240px"><div>Finland 🇫🇮</div></div>
-      <div style="text-align:center"><img src="images/switzerland.jpeg" style="width:240px"><div>Switzerland 🇨🇭</div></div>
+      <div style="text-align:center"><img src="finland.jpeg" style="width:240px" alt="Finland"><div>Finland 🇫🇮</div></div>
+      <div style="text-align:center"><img src="switzerland.jpeg" style="width:240px" alt="Switzerland"><div>Switzerland 🇨🇭</div></div>
     </div>
   </section>
 
   <section id="food">
     <h2>Food We Love</h2>
     <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
-      <div style="text-align:center"><img src="images/mandi.jpeg" style="width:240px"><div>Mandi 🍛</div></div>
-      <div style="text-align:center"><img src="images/biriyani.jpeg" style="width:240px"><div>Biryani 🍚</div></div>
+      <div style="text-align:center"><img src="mandi.jpeg" style="width:240px" alt="Mandi"><div>Mandi 🍛</div></div>
+      <div style="text-align:center"><img src="biriyani.jpeg" style="width:240px" alt="Biryani"><div>Biryani 🍚</div></div>
     </div>
   </section>
 
@@ -98,7 +98,6 @@
   // hide opening after 3s and confetti
   window.addEventListener('load', ()=> {
     setTimeout(()=>document.getElementById('opening').style.display='none', 3000);
-    // quick confetti if available (optional)
     try{ confetti && confetti({particleCount:100,spread:60,origin:{y:0.6}}) }catch(e){}
   });
 
@@ -106,7 +105,7 @@
   const stories = {
     first_met: "I remember your smile .",
     first_trip: "That exibition where we enjoy the most.",
-    favorite_food: "Mandi  afternoons — every bite tastes a sort of happiness.",
+    favorite_food: "Mandi afternoons — every bite tastes a sort of happiness.",
     "3yrs": "Three years together: every memory feels like a warm, colorful scrapbook."
   };
   document.querySelectorAll('.card').forEach(c=>{
@@ -116,7 +115,7 @@
     });
   });
 
-  // infinite hearts (regenerating)
+  // infinite hearts
   const container = document.body;
   function spawnHeart(){
     const h=document.createElement('div');
