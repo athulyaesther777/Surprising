@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Our Love Story — MILK & MOCHU</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#d63384; --soft:#ffdfee;
+  }
+  html,body{height:100%;margin:0;font-family:Arial, Helvetica, sans-serif;background:linear-gradient(135deg,#ffe6f0,#fffafc,#e6f7ff);background-size:400% 400%;animation:bg 18s ease infinite}
+  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  header{padding:12px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,204,221,.75);position:sticky;top:0;backdrop-filter:blur(6px)}
+  header .logo{font-family:'Great Vibes',cursive;font-size:1.35rem;color:var(--accent)}
+  main{max-width:980px;margin:24px auto;padding:0 16px}
+  .hero{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center}
+  .hero img{width:260px;border-radius:14px;box-shadow:0 10px 30px rgba(214,51,132,.12)}
+  .hero .intro{max-width:520px}
+  h1{font-family:'Great Vibes',cursive;color:var(--accent);margin:0 0 8px}
+  p.lead{font-family:'Dancing Script',cursive;font-size:1.1rem;color:#7a3a62;margin:0}
+  /* timeline */
+  .timeline{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;justify-content:center}
+  .card{background:rgba(255,255,255,.85);border-radius:12px;padding:14px;width:220px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.06);transition:transform .22s}
+  .card:hover{transform:translateY(-6px)}
+  .card h3{margin:0 0 6px;color:var(--accent)}
+  .card p{margin:0;color:#6b3d5a;font-size:.95rem}
+  .story-panel{margin-top:18px;background:rgba(255,255,255,.9);padding:16px;border-radius:12px;min-height:80px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+  /* hearts */
+  .heart{position:fixed;bottom:-40px;width:22px;height:22px;background:var(--accent);transform:rotate(45deg);opacity:.9;z-index:30;pointer-events:none}
+  .heart::before,.heart::after{content:"";position:absolute;width:22px;height:22px;background:var(--accent);border-radius:50%}
+  .heart::before{top:-11px;left:0} .heart::after{left:-11px;top:0}
+  @keyframes up {0%{transform:translateY(0) rotate(45deg) scale(.7);opacity:.95}100%{transform:translateY(-110vh) rotate(45deg) scale(1.2);opacity:0}}
+  /* popup */
+  #opening{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,230,240,.96);z-index:40;font-family:'Great Vibes',cursive;color:var(--accent);text-align:center;padding:20px}
+  #opening .box{background:var(--soft);padding:28px;border-radius:14px;box-shadow:0 30px 70px rgba(214,51,132,.12)}
+  /* small */
+  footer{text-align:center;padding:18px;color:#8b5a72}
+  @media(max-width:640px){.hero{flex-direction:column}.hero img{width:86%}}
+</style>
+</head>
+<body>
+
+<!-- opening popup -->
+<div id="opening"><div class="box"><h2>🎉 Happy 3rd Friendship Anniversary, MILK & MOCHU! 🎉</h2>
+  <p style="font-style:italic;margin:8px 0 0">“Three years of laughter, memories, and an unbreakable bond.”</p>
+</div></div>
+
+<header><div class="logo">MILK & MOCHU</div><nav><a href="#place">Places</a> • <a href="#food">Food</a> • <a href="#about">About</a></nav></header>
+
+<main>
+  <section class="hero">
+    <div class="intro">
+      <h1>Hi Mochu! I'm MILK ❤️</h1>
+      <p class="lead">Here's a little surprise for you — our story, our favorite places, and reasons why I love you.</p>
+    </div>
+    <img src="images/milk_travel.jpeg" alt="MILK travel">
+  </section>
+
+  <section id="timeline">
+    <h2 style="text-align:center;color:#7a3a62">Moments</h2>
+    <div class="timeline">
+      <div class="card" data-story="first_met"><h3>We Met</h3><p>The day we first talked and laughed together.</p></div>
+      <div class="card" data-story="first_trip"><h3>First Trip</h3><p>That rainy road trip that turned into the best memory.</p></div>
+      <div class="card" data-story="favorite_food"><h3>Favorite Food</h3><p>Mandi nights and biriyani afternoons.</p></div>
+      <div class="card" data-story="3yrs"><h3>3 Years</h3><p>Three years of us — and more to come.</p></div>
+    </div>
+
+    <div class="story-panel" id="storyPanel">Click a card to reveal a memory ✨</div>
+  </section>
+
+  <section id="place">
+    <h2>Dream Destinations</h2>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
+      <div style="text-align:center"><img src="images/finland.jpeg" style="width:240px"><div>Finland 🇫🇮</div></div>
+      <div style="text-align:center"><img src="images/switzerland.jpeg" style="width:240px"><div>Switzerland 🇨🇭</div></div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2>Food We Love</h2>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
+      <div style="text-align:center"><img src="images/mandi.jpeg" style="width:240px"><div>Mandi 🍛</div></div>
+      <div style="text-align:center"><img src="images/biriyani.jpeg" style="width:240px"><div>Biryani 🍚</div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="font-style:italic">"True friends are never apart, maybe in distance but never in heart."</p>
+    <p style="color:#6b3d5a">Made with ❤️ by MILK for Mochu • © 2025</p>
+  </section>
+</main>
+
+<footer>Made with lots of love ❤️</footer>
+
+<script>
+  // hide opening after 3s and confetti
+  window.addEventListener('load', ()=> {
+    setTimeout(()=>document.getElementById('opening').style.display='none', 3000);
+    // quick confetti if available (optional)
+    try{ confetti && confetti({particleCount:100,spread:60,origin:{y:0.6}}) }catch(e){}
+  });
+
+  // stories
+  const stories = {
+    first_met: "I remember your smile .",
+    first_trip: "That exibition where we enjoy the most.",
+    favorite_food: "Mandi  afternoons — every bite tastes a sort of happiness.",
+    "3yrs": "Three years together: every memory feels like a warm, colorful scrapbook."
+  };
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('click', ()=> {
+      const key = c.dataset.story;
+      document.getElementById('storyPanel').textContent = stories[key] || "A sweet memory.";
+    });
+  });
+
+  // infinite hearts (regenerating)
+  const container = document.body;
+  function spawnHeart(){
+    const h=document.createElement('div');
+    h.className='heart';
+    const size = 10 + Math.random()*30;
+    h.style.width=h.style.height = size+'px';
+    h.style.left = Math.random()*100 + 'vw';
+    const dur = 6 + Math.random()*6;
+    h.style.animation = `up ${dur}s linear forwards`;
+    container.appendChild(h);
+    setTimeout(()=>h.remove(), dur*1000);
+  }
+  setInterval(spawnHeart, 350);
+</script>
+
+</body>
+</html>
