@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Beautiful Flower</title>
+<style>
+  :root{
+    --bg:#0f1724;
+    --petal1:#ff7ab6;
+    --petal2:#ffd3a5;
+    --center1:#ffd24d;
+    --center2:#ff8c42;
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    background: radial-gradient(1200px 600px at 10% 10%, #071025 0%, transparent 20%),
+                linear-gradient(180deg,var(--bg) 0%, #061322 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:white;
+  }
+
+  .stage{
+    width:460px;
+    height:460px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    user-select:none;
+    filter:drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+  }
+
+  svg{ width:100%; height:100%; overflow:visible; }
+
+  /* gentle rotate */
+  .flower {
+    transform-origin: 50% 50%;
+    animation: spin 18s linear infinite;
+  }
+  @keyframes spin {
+    from{ transform: rotate(0deg) scale(0.98); }
+    50%{ transform: rotate(5deg) scale(1.02); }
+    to{ transform: rotate(0deg) scale(0.98); }
+  }
+
+  /* petal bloom animation */
+  .petal {
+    transform-origin: 50% 50%;
+    animation: bloom 2.2s ease-out forwards;
+    transform-box: fill-box;
+  }
+  @keyframes bloom {
+    0%   { transform: scale(0.1) translateY(12px); opacity:0; }
+    60%  { transform: scale(1.05) translateY(-4px); opacity:1; }
+    100% { transform: scale(1) translateY(0); opacity:1; }
+  }
+
+  /* stagger bloom */
+  .petal.p0{ animation-delay: 0.05s; }
+  .petal.p1{ animation-delay: 0.12s; }
+  .petal.p2{ animation-delay: 0.20s; }
+  .petal.p3{ animation-delay: 0.28s; }
+  .petal.p4{ animation-delay: 0.36s; }
+  .petal.p5{ animation-delay: 0.44s; }
+  .petal.p6{ animation-delay: 0.52s; }
+  .petal.p7{ animation-delay: 0.60s; }
+
+  /* subtle hover/enlarge */
+  .stage:hover .flower { animation-play-state: paused; transform: scale(1.03); }
+  .stage:hover .center { transform: scale(1.06); transition: transform 0.25s ease; }
+
+  /* center pulses slowly */
+  .center { transform-origin: 50% 50%; animation: pulse 3s ease-in-out infinite; }
+  @keyframes pulse{
+    0% { transform: scale(1); }
+    50%{ transform: scale(1.06); }
+    100%{ transform: scale(1); }
+  }
+
+  /* text */
+  .caption{
+    text-align:center;
+    margin-top:14px;
+    font-size:14px;
+    color: #cfe6ff;
+    opacity:0.9;
+  }
+  a.credit{ color:#88d0ff; text-decoration:none; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="stage" title="A little animated flower — hover to pause">
+      <!-- SVG flower -->
+      <svg viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="petalGrad" cx="30%" cy="20%">
+            <stop offset="0%" stop-color="#fff7fb" stop-opacity="0.9"/>
+            <stop offset="40%" stop-color="var(--petal1)"/>
+            <stop offset="100%" stop-color="var(--petal2)"/>
+          </radialGradient>
+
+          <radialGradient id="centerGrad" cx="40%" cy="30%">
+            <stop offset="0%" stop-color="#fff6d1"/>
+            <stop offset="50%" stop-color="var(--center1)"/>
+            <stop offset="100%" stop-color="var(--center2)"/>
+          </radialGradient>
+
+          <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.8" result="b"/>
+            <feBlend in="SourceGraphic" in2="b"/>
+          </filter>
+        </defs>
+
+        <g class="flower" filter="url(#soft)">
+          <!-- petals arranged in a circle -->
+          <!-- parametric petal path (teardrop) -->
+          <!-- We'll create 8 petals with rotation -->
+          <g transform="translate(0 -8)">
+            <!-- use 8 petals -->
+            <!-- loop simulated by manually adding rotated copies -->
+            <path class="petal p0" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(0)" />
+            <path class="petal p1" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(45)" />
+            <path class="petal p2" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(90)" />
+            <path class="petal p3" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(135)" />
+            <path class="petal p4" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(180)" />
+            <path class="petal p5" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(225)" />
+            <path class="petal p6" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(270)" />
+            <path class="petal p7" d="M0 0 C 18 -6 36 -2 44 12 C 34 4 20 22 4 36 C -8 24 -14 8 -6 0 Z"
+                  fill="url(#petalGrad)" opacity="0.98" transform="rotate(315)" />
+          </g>
+
+          <!-- small inner ring of petals for depth -->
+          <g>
+            <path d="M0 0 C 10 -3 20 -1 24 8 C 19 4 11 12 3 18 C -3 13 -6 6 -2 2 Z"
+                  fill="rgba(255,255,255,0.06)" transform="rotate(22)" opacity="0.9"/>
+            <path d="M0 0 C 10 -3 20 -1 24 8 C 19 4 11 12 3 18 C -3 13 -6 6 -2 2 Z"
+                  fill="rgba(255,255,255,0.04)" transform="rotate(202)" opacity="0.92"/>
+          </g>
+
+          <!-- center -->
+          <g class="center" transform="translate(0, -2)">
+            <circle r="18" fill="url(#centerGrad)" />
+            <!-- small decorative dots -->
+            <g opacity="0.95">
+              <circle cx="-6" cy="-4" r="2.6" fill="#fff3c8" />
+              <circle cx="6" cy="-2" r="2.2" fill="#fff3c8" />
+              <circle cx="2" cy="6" r="1.8" fill="#fff3c8" />
+            </g>
+          </g>
+
+        </g>
+      </svg>
+    </div>
+
+    <div class="caption">Beautiful Flower — hover to pause the animation</div>
+  </div>
+</body>
+</html>
